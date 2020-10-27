@@ -1,9 +1,9 @@
 /*!
  * 
- *   simple-keyboard v2.32.20
- *   https://github.com/hodgef/simple-keyboard
+ *   @symplr-oss/simple-keyboard v2.32.20
+ *   https://github.com/symplr-oss/simple-keyboard
  * 
- *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
+ *   Copyright (c) symplr
  * 
  *   This source code is licensed under the MIT license found in the
  *   LICENSE file in the root directory of this source tree.
