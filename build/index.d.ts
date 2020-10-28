@@ -111,7 +111,7 @@ declare module 'simple-keyboard' {
      * Calling preventDefault for the mouseup events.
      */
     preventMouseUpDefault?: boolean;
-    
+
     /**
      * Stops pointer down events on simple-keyboard buttons from bubbling to parent elements.
      */
@@ -211,6 +211,8 @@ declare module 'simple-keyboard' {
      * Module options can have any format
      */
     [name: string]: any;
+
+    throttleInput?: number;
   }
 
   class Keyboard {

@@ -431,6 +431,19 @@ class Utilities {
       );
   }
 
+  throttle(func, timeout) {
+    let waiting = false;
+    return function() {
+      if (!waiting) {
+        func.apply(this, arguments);
+        waiting = true;
+        setTimeout(function() {
+          waiting = false;
+        }, timeout);
+      }
+    };
+  }
+
   static noop = () => {};
 }
 

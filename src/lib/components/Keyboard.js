@@ -87,6 +87,7 @@ class SimpleKeyboard {
      * @property {boolean} rtl Adds unicode right-to-left control characters to input return values.
      * @property {function} onKeyReleased Executes the callback function on key release.
      * @property {array} modules Module classes to be loaded by simple-keyboard.
+     * @property {number} throttleInput Amount in milliseconds to wait after key press before accepting new input.
      */
     this.options = options;
     this.options.layoutName = this.options.layoutName || "default";
@@ -1427,10 +1428,13 @@ class SimpleKeyboard {
           /**
            * Handle PointerEvents
            */
-          buttonDOM.onpointerdown = e => {
-            this.handleButtonClicked(button);
-            this.handleButtonMouseDown(button, e);
-          };
+          buttonDOM.onpointerdown = this.utilities.throttle(
+            e => {
+              this.handleButtonClicked(button);
+              this.handleButtonMouseDown(button, e);
+            },
+            this.options.throttleInput ? this.options.throttleInput : 0
+          );
           buttonDOM.onpointerup = e => {
             this.handleButtonMouseUp(button, e);
           };
@@ -1445,10 +1449,13 @@ class SimpleKeyboard {
             /**
              * Handle touch events
              */
-            buttonDOM.ontouchstart = e => {
-              this.handleButtonClicked(button);
-              this.handleButtonMouseDown(button, e);
-            };
+            buttonDOM.ontouchstart = this.utilities.throttle(
+              e => {
+                this.handleButtonClicked(button);
+                this.handleButtonMouseDown(button, e);
+              },
+              this.options.throttleInput ? this.options.throttleInput : 0
+            );
             buttonDOM.ontouchend = e => {
               this.handleButtonMouseUp(button, e);
             };
@@ -1459,10 +1466,13 @@ class SimpleKeyboard {
             /**
              * Handle mouse events
              */
-            buttonDOM.onclick = () => {
-              this.isMouseHold = false;
-              this.handleButtonClicked(button);
-            };
+            buttonDOM.onclick = this.utilities.throttle(
+              () => {
+                this.isMouseHold = false;
+                this.handleButtonClicked(button);
+              },
+              this.options.throttleInput ? this.options.throttleInput : 0
+            );
             buttonDOM.onmousedown = e => {
               this.handleButtonMouseDown(button, e);
             };
