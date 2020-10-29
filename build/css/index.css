@@ -1,6 +1,6 @@
 /*!
  * 
- *   @symplr-oss/simple-keyboard v2.32.20
+ *   @symplr-oss/simple-keyboard v2.32.40
  *   https://github.com/symplr-oss/simple-keyboard
  * 
  *   Copyright (c) symplr

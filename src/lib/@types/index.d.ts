@@ -1,4 +1,4 @@
-declare module 'simple-keyboard' {
+declare module '@symplr-oss/simple-keyboard' {
   interface KeyboardLayoutObject {
     [key: string]: string[];
   }
@@ -111,7 +111,7 @@ declare module 'simple-keyboard' {
      * Calling preventDefault for the mouseup events.
      */
     preventMouseUpDefault?: boolean;
-    
+
     /**
      * Stops pointer down events on simple-keyboard buttons from bubbling to parent elements.
      */

@@ -1,4 +1,4 @@
-declare module 'simple-keyboard' {
+declare module '@symplr-oss/simple-keyboard' {
   interface KeyboardLayoutObject {
     [key: string]: string[];
   }
@@ -211,8 +211,6 @@ declare module 'simple-keyboard' {
      * Module options can have any format
      */
     [name: string]: any;
-
-    throttleInput?: number;
   }
 
   class Keyboard {
